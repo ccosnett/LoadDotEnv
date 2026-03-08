@@ -4,7 +4,7 @@
    No support yet for: quoted values, multi-line values, variable expansion,
    the `export` prefix, or UTF-8 BOM stripping. *)
 
-LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current working directory and returns an Association of key-value pairs. LoadDotEnv[path] loads the .env file at the given path."
+LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current working directory and returns an Association of key-value pairs.\n LoadDotEnv[path] loads the .env file at the given path."
 
 LoadDotEnv[] := LoadDotEnv[FileNameJoin[{Directory[], ".env"}]]
 
