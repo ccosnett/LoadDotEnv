@@ -48,7 +48,7 @@ After loading the file, call `?LoadDotEnv` to see the usage string:
 
 ## Limitations
 
-This is a zeroth-order approximation. It handles:
+It handles:
 - Unquoted `key=value` pairs
 - Comment lines (starting with `#`)
 - Blank lines
