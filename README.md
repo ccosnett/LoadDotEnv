@@ -46,6 +46,10 @@ After loading the file, call `?LoadDotEnv` to see the usage string:
 ?LoadDotEnv
 ```
 
+## demo.nb notebook
+
+![demo.nb notebook screenshot](image.png)
+
 ## Limitations
 
 It handles:
