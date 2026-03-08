@@ -1,15 +1,15 @@
 # LoadDotEnv
 
-A Mathematica/Wolfram Language utility for loading `.env` files into your notebook session.
+Load environment variables from `.env` files into a Wolfram Language session.
 
 ## Usage
 
 ### Loading
 
-To use `LoadDotEnv`, load the file with `<<` (assumes `LoadDotEnv.wl` is in the same directory as your notebook):
+To use `LoadDotEnv`, load the package with `<<` (assumes `LoadDotEnv.wl` is in the same directory):
 
 ```mathematica
-<<LoadDotEnv.wl
+<< LoadDotEnv`
 ```
 
 ### Running LoadDotEnv
