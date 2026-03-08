@@ -1,0 +1,100 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3330,         92]
+NotebookOptionsPosition[      2544,         70]
+NotebookOutlinePosition[      2942,         86]
+CellTagsIndexPosition[      2899,         83]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "LoadDotEnv`"}]], "Input",
+ CellChangeTimes->{{3.9819965934209213`*^9, 3.9819965984222317`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"3069857e-aa83-43e7-ab84-f8ab82546085"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<.env\>\""}], "}"}], 
+    "]"}], ",", 
+   "\"\<# example .env file\nSTRIPE_API_KEY=scr_12345\n\
+TWILIO_API_KEY=abcd1234\>\"", ",", "\"\<Text\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.982001342960785*^9, 3.9820014339435177`*^9}, {
+  3.9820014705327873`*^9, 3.9820014997298107`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"814d7b3e-9d3e-411c-8334-933fca1d2eea"],
+
+Cell[BoxData["\<\"/Users/johncosnett/PycharmProjects/LoadDotEnv/.env\"\>"], \
+"Output",
+ CellChangeTimes->{
+  3.982001435222435*^9, {3.982001472119371*^9, 3.982001500083255*^9}},
+ CellLabel->"Out[12]=",ExpressionUUID->"f5e9307e-c5f1-4806-af3e-4d86d1dd5233"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadDotEnv", "[", "DotEnvFile", "]"}]], "Input",
+ CellChangeTimes->{{3.981996601437932*^9, 3.981996658861327*^9}, {
+  3.9820013564404373`*^9, 3.9820013763485603`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"31a56cd9-1875-4f15-94c3-e79ab38aba48"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"STRIPE_API_KEY\"\>", "\[Rule]", "\<\"scr_12345\"\>"}], ",", 
+   RowBox[{"\<\"TWILIO_API_KEY\"\>", "\[Rule]", "\<\"abcd1234\"\>"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.9819966048222017`*^9, {3.9819966360201674`*^9, 3.981996659528658*^9}, 
+   3.981996751073698*^9, {3.981997729883745*^9, 3.9819977409018173`*^9}, 
+   3.982001260101604*^9, {3.982001308661766*^9, 3.982001323131618*^9}, {
+   3.982001371949976*^9, 3.982001376907597*^9}, 3.982001501899576*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"01ab6e0d-5bb5-4e81-9310-5f9e41a3d1c9"]
+}, Open  ]]
+},
+WindowSize->{854, 491},
+WindowMargins->{{80, Automatic}, {Automatic, 131}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"154d5496-ee16-4983-8dd6-b826b9e2b4c7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 203, 3, 46, "Input",ExpressionUUID->"3069857e-aa83-43e7-ab84-f8ab82546085"],
+Cell[CellGroupData[{
+Cell[786, 27, 536, 12, 140, "Input",ExpressionUUID->"814d7b3e-9d3e-411c-8334-933fca1d2eea"],
+Cell[1325, 41, 257, 4, 52, "Output",ExpressionUUID->"f5e9307e-c5f1-4806-af3e-4d86d1dd5233"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1619, 50, 270, 4, 46, "Input",ExpressionUUID->"31a56cd9-1875-4f15-94c3-e79ab38aba48"],
+Cell[1892, 56, 636, 11, 52, "Output",ExpressionUUID->"01ab6e0d-5bb5-4e81-9310-5f9e41a3d1c9"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,82 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2530,         74]
+NotebookOptionsPosition[      1780,         54]
+NotebookOutlinePosition[      2177,         70]
+CellTagsIndexPosition[      2134,         67]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.981996583406672*^9, 3.981996586955408*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"69b21704-ef43-47f8-aad9-8d7ca3f068dc"],
+
+Cell[BoxData[
+ RowBox[{"<<", "LoadDotEnv`"}]], "Input",
+ CellChangeTimes->{{3.9819965934209213`*^9, 3.9819965984222317`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"3069857e-aa83-43e7-ab84-f8ab82546085"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadDotEnv", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.981996601437932*^9, 3.981996603000053*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"31a56cd9-1875-4f15-94c3-e79ab38aba48"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LoadDotEnv", "nofile", 
+   "\"File not found: \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"/Users/johncosnett/PycharmProjects/LoadDotEnv/.\
+env\\\\\\\"\\\"}]\\).\"", 2, 2, 1, 16963125652903059256, "Local", 
+   "Global`LoadDotEnv"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.981996604806116*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"3004b48c-9eaf-49c2-91b3-fa98022feed4"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.9819966048222017`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"86374287-f0b0-4272-8e32-7c926eb967b9"]
+}, Open  ]]
+},
+WindowSize->{1728, 1057},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"154d5496-ee16-4983-8dd6-b826b9e2b4c7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 174, 2, 46, "Input",ExpressionUUID->"69b21704-ef43-47f8-aad9-8d7ca3f068dc"],
+Cell[735, 24, 203, 3, 46, "Input",ExpressionUUID->"3069857e-aa83-43e7-ab84-f8ab82546085"],
+Cell[CellGroupData[{
+Cell[963, 31, 202, 3, 46, "Input",ExpressionUUID->"31a56cd9-1875-4f15-94c3-e79ab38aba48"],
+Cell[1168, 36, 437, 11, 41, "Message",ExpressionUUID->"3004b48c-9eaf-49c2-91b3-fa98022feed4"],
+Cell[1608, 49, 156, 2, 52, "Output",ExpressionUUID->"86374287-f0b0-4272-8e32-7c926eb967b9"]
+}, Open  ]]
+}
+]
+*)
+
