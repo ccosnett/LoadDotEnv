@@ -1,5 +1,5 @@
 (* LoadDotEnv.wl
-   Zeroth-order approximation of LoadDotEnv.
+   Loads environment variables from .env files into a Wolfram Language session.
    Handles the basic case: unquoted key=value pairs, comment lines, blank lines.
    No support yet for: quoted values, multi-line values, variable expansion,
    the `export` prefix, or UTF-8 BOM stripping. *)
