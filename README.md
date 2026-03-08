@@ -4,18 +4,12 @@ A Mathematica/Wolfram Language utility for loading `.env` files into your notebo
 
 ## Usage
 
-### Loading in a Notebook
+### Loading
 
-To use `LoadDotEnv` in a Wolfram Language notebook, load the file with `Get`:
-
-```mathematica
-Get["path/to/LoadDotEnv.wl"]
-```
-
-If the file is in the same directory as your notebook, you can use:
+To use `LoadDotEnv`, load the file with `<<` (assumes `LoadDotEnv.wl` is in the same directory as your notebook):
 
 ```mathematica
-Get[FileNameJoin[{NotebookDirectory[], "LoadDotEnv.wl"}]]
+<<LoadDotEnv.wl
 ```
 
 ### Running LoadDotEnv
