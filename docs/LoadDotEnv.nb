@@ -1,0 +1,570 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1,          1]
+NotebookOptionsPosition[      1,          1]
+NotebookOutlinePosition[      1,          1]
+CellTagsIndexPosition[      1,          1]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell["LoadDotEnv", "Title",
+ Deletable->False,
+ CellTags->{"Name", "Title"},
+ CellID->100000001,ExpressionUUID->"a1000001-0001-0001-0001-000000000001"],
+
+Cell["Load environment variables from a .env file and return them as an \
+Association", "Text",
+ Deletable->False,
+ CellTags->{"Description"},
+ CellID->100000002,ExpressionUUID->"a1000001-0001-0001-0001-000000000002"],
+
+Cell[CellGroupData[{
+
+Cell["Definition", "Section",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Definition"},
+ CellID->100000003,ExpressionUUID->"a1000001-0001-0001-0001-000000000003"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadDotEnv", "::", "usage"}], "=",
+  "\"\<LoadDotEnv[] loads the .env file in the current working directory and \
+returns an Association of key-value pairs.\nLoadDotEnv[path] loads the .env \
+file at the given path.\>\""}]], "Input",
+ CellID->100000004,ExpressionUUID->"a1000001-0001-0001-0001-000000000004"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadDotEnv", "[", "]"}], ":=",
+  RowBox[{"LoadDotEnv", "[",
+   RowBox[{"FileNameJoin", "[",
+    RowBox[{"{",
+     RowBox[{
+      RowBox[{"Directory", "[", "]"}], ",", "\"\<.env\>\""}], "}"}],
+    "]"}], "]"}]}]], "Input",
+ CellID->100000005,ExpressionUUID->"a1000001-0001-0001-0001-000000000005"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadDotEnv", "[",
+   RowBox[{"path_", "String"}], "]"}], ":=",
+  RowBox[{"Module", "[",
+   RowBox[{
+    RowBox[{"{",
+     RowBox[{"lines", ",", "stripped", ",", "content", ",", "parsed"}],
+     "}"}], ",",
+    RowBox[{
+     RowBox[{"If", "[",
+      RowBox[{
+       RowBox[{"!",
+        RowBox[{"FileExistsQ", "[", "path", "]"}]}], ",",
+       RowBox[{
+        RowBox[{"Message", "[",
+         RowBox[{
+          RowBox[{"LoadDotEnv", "::", "nofile"}], ",", "path"}],
+         "]"}], ";",
+        RowBox[{"Return", "[", "$Failed", "]"}]}]}], "]"}], ";",
+     RowBox[{"lines", "=",
+      RowBox[{
+       RowBox[{"StringTrim", "/@"}],
+       RowBox[{"ReadList", "[", "path", ",", "String", "]"}]}]}], ";",
+     RowBox[{"lines", "=",
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringDelete", "[",
+         RowBox[{"#", ",", "\"\<\\\"\>\""}], "]"}], "&"}], "/@",
+       "lines"}]}], ";",
+     RowBox[{"stripped", "=",
+      RowBox[{"Select", "[",
+       RowBox[{"lines", ",",
+        RowBox[{
+         RowBox[{
+          RowBox[{"!",
+           RowBox[{"StringStartsQ", "[",
+            RowBox[{"#", ",", "\"\<#\>\""}], "]"}]}], "&&",
+          RowBox[{"#", "=!=", "\"\<\>\""}]}], "&"}]}], "]"}]}], ";",
+     RowBox[{"If", "[",
+      RowBox[{
+       RowBox[{"stripped", "===",
+        RowBox[{"{", "}"}]}], ",",
+       RowBox[{"Return", "[",
+        RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], "]"}]}],
+      "]"}], ";",
+     RowBox[{"content", "=",
+      RowBox[{"StringRiffle", "[",
+       RowBox[{"stripped", ",", "\"\<\n\>\""}], "]"}]}], ";",
+     RowBox[{"parsed", "=",
+      RowBox[{"ImportString", "[",
+       RowBox[{"content", ",", "\"\<Ini\>\""}], "]"}]}], ";",
+     RowBox[{"Association", "@@",
+      RowBox[{"Flatten", "[",
+       RowBox[{"Values", "[", "parsed", "]"}], "]"}]}]}]}], "]"}]}]],
+ "Input",
+ CellID->100000006,ExpressionUUID->"a1000001-0001-0001-0001-000000000006"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadDotEnv", "::", "nofile"}], "=",
+  "\"\<File not found: `1`.\>\""}]], "Input",
+ CellID->100000007,ExpressionUUID->"a1000001-0001-0001-0001-000000000007"]
+
+}, Open  ]],
+
+Cell["Documentation", "Section",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Documentation"},
+ CellID->100000008,ExpressionUUID->"a1000001-0001-0001-0001-000000000008"],
+
+Cell[CellGroupData[{
+
+Cell["Usage", "Subsection",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Usage"},
+ CellID->100000009,ExpressionUUID->"a1000001-0001-0001-0001-000000000009"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadDotEnv", "[", "]"}]], "UsageInputs",
+ FontFamily->"Source Sans Pro",
+ CellTags->{"UsageInput"},
+ CellID->100000010,ExpressionUUID->"a1000001-0001-0001-0001-000000000010"],
+
+Cell[TextData[{
+ "Loads the ",
+ Cell[BoxData[StyleBox[".env", "MR"]]],
+ " file in the current working directory and returns an Association of \
+key-value pairs."
+}], "UsageDescription",
+ CellTags->{"UsageDescription"},
+ CellID->100000011,ExpressionUUID->"a1000001-0001-0001-0001-000000000011"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadDotEnv", "[",
+  StyleBox["path", "TI"], "]"}]], "UsageInputs",
+ FontFamily->"Source Sans Pro",
+ CellTags->{"UsageInput"},
+ CellID->100000012,ExpressionUUID->"a1000001-0001-0001-0001-000000000012"],
+
+Cell[TextData[{
+ "Loads the ", Cell[BoxData[StyleBox[".env", "MR"]]], " file at the given ",
+ StyleBox["path", "TI"], "."
+}], "UsageDescription",
+ CellTags->{"UsageDescription"},
+ CellID->100000013,ExpressionUUID->"a1000001-0001-0001-0001-000000000013"]
+
+}, Open  ]]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details & Options", "Subsection",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Details & Options"},
+ CellID->100000014,ExpressionUUID->"a1000001-0001-0001-0001-000000000014"],
+
+Cell["\<\
+LoadDotEnv parses KEY=VALUE pairs, ignoring comment lines (starting with #) \
+and blank lines.\
+\>", "Notes",
+ CellID->100000015,ExpressionUUID->"a1000001-0001-0001-0001-000000000015"],
+
+Cell["\<\
+Double-quote characters around values are stripped.\
+\>", "Notes",
+ CellID->100000016,ExpressionUUID->"a1000001-0001-0001-0001-000000000016"],
+
+Cell["\<\
+The function returns $Failed with a message if the file is not found, and an \
+empty <||> if the file contains no valid entries.\
+\>", "Notes",
+ CellID->100000017,ExpressionUUID->"a1000001-0001-0001-0001-000000000017"],
+
+Cell["\<\
+No options are available.\
+\>", "Notes",
+ CellID->100000018,ExpressionUUID->"a1000001-0001-0001-0001-000000000018"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Section",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Examples"},
+ CellID->100000019,ExpressionUUID->"a1000001-0001-0001-0001-000000000019"],
+
+Cell[CellGroupData[{
+
+Cell["Basic Examples", "Subsection",
+ CellID->100000020,ExpressionUUID->"a1000001-0001-0001-0001-000000000020"],
+
+Cell["Write and load a simple .env file:", "Text",
+ CellID->100000021,ExpressionUUID->"a1000001-0001-0001-0001-000000000021"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"file", "=",
+   RowBox[{"Export", "[",
+    RowBox[{
+     RowBox[{"FileNameJoin", "[",
+      RowBox[{"{",
+       RowBox[{"$TemporaryDirectory", ",", "\"\<.env\>\""}], "}"}],
+      "]"}], ",",
+     "\"\<API_KEY=abc123\nDB_HOST=localhost\>\"", ",",
+     "\"\<Text\>\""}], "]"}]}], ";",
+  RowBox[{"LoadDotEnv", "[", "file", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->100000022,ExpressionUUID->"a1000001-0001-0001-0001-000000000022"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]",
+  RowBox[{
+   "\"\<API_KEY\>\"", "\[Rule]", "\"\<abc123\>\"", ",",
+   "\"\<DB_HOST\>\"", "\[Rule]", "\"\<localhost\>\""}],
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->100000023,ExpressionUUID->"a1000001-0001-0001-0001-000000000023"]
+
+}, Open  ]],
+
+Cell["Load a file with comments and blank lines:", "Text",
+ CellID->100000024,ExpressionUUID->"a1000001-0001-0001-0001-000000000024"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"file", "=",
+   RowBox[{"Export", "[",
+    RowBox[{
+     RowBox[{"FileNameJoin", "[",
+      RowBox[{"{",
+       RowBox[{"$TemporaryDirectory", ",", "\"\<.env\>\""}], "}"}],
+      "]"}], ",",
+     "\"\<# database config\nDB_HOST=localhost\n\nDB_PORT=5432\>\"", ",",
+     "\"\<Text\>\""}], "]"}]}], ";",
+  RowBox[{"LoadDotEnv", "[", "file", "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->100000025,ExpressionUUID->"a1000001-0001-0001-0001-000000000025"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]",
+  RowBox[{
+   "\"\<DB_HOST\>\"", "\[Rule]", "\"\<localhost\>\"", ",",
+   "\"\<DB_PORT\>\"", "\[Rule]", "\"\<5432\>\""}],
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->100000026,ExpressionUUID->"a1000001-0001-0001-0001-000000000026"]
+
+}, Open  ]],
+
+Cell["Quoted values have quotes stripped:", "Text",
+ CellID->100000027,ExpressionUUID->"a1000001-0001-0001-0001-000000000027"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"file", "=",
+   RowBox[{"Export", "[",
+    RowBox[{
+     RowBox[{"FileNameJoin", "[",
+      RowBox[{"{",
+       RowBox[{"$TemporaryDirectory", ",", "\"\<.env\>\""}], "}"}],
+      "]"}], ",",
+     "\"\<SECRET=\\\"my secret value\\\"\>\"", ",",
+     "\"\<Text\>\""}], "]"}]}], ";",
+  RowBox[{"LoadDotEnv", "[", "file", "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->100000028,ExpressionUUID->"a1000001-0001-0001-0001-000000000028"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]",
+  RowBox[{"\"\<SECRET\>\"", "\[Rule]", "\"\<my secret value\>\""}],
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->100000029,ExpressionUUID->"a1000001-0001-0001-0001-000000000029"]
+
+}, Open  ]]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scope", "Subsection",
+ CellID->100000030,ExpressionUUID->"a1000001-0001-0001-0001-000000000030"],
+
+Cell["\<\
+Use the zero-argument form to load the .env file from the current directory:\
+\>", "Text",
+ CellID->100000031,ExpressionUUID->"a1000001-0001-0001-0001-000000000031"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "$TemporaryDirectory", "]"}], ";",
+  RowBox[{"Export", "[",
+   RowBox[{"\"\<.env\>\"", ",", "\"\<FOO=bar\>\"", ",", "\"\<Text\>\""}],
+   "]"}], ";",
+  RowBox[{"LoadDotEnv", "[", "]"}]}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->100000032,ExpressionUUID->"a1000001-0001-0001-0001-000000000032"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]",
+  RowBox[{"\"\<FOO\>\"", "\[Rule]", "\"\<bar\>\""}],
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->100000033,ExpressionUUID->"a1000001-0001-0001-0001-000000000033"]
+
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ResetDirectory", "[", "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->100000034,ExpressionUUID->"a1000001-0001-0001-0001-000000000034"],
+
+Cell["\<\
+Access individual values from the result:\
+\>", "Text",
+ CellID->100000035,ExpressionUUID->"a1000001-0001-0001-0001-000000000035"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"env", "=",
+   RowBox[{"LoadDotEnv", "[", "file", "]"}]}], ";",
+  RowBox[{"env", "[", "\"\<API_KEY\>\"", "]"}]}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->100000036,ExpressionUUID->"a1000001-0001-0001-0001-000000000036"],
+
+Cell[BoxData["\"\<abc123\>\""], "Output",
+ CellLabel->"Out[6]=",
+ CellID->100000037,ExpressionUUID->"a1000001-0001-0001-0001-000000000037"]
+
+}, Open  ]]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Possible Issues", "Subsection",
+ CellID->100000038,ExpressionUUID->"a1000001-0001-0001-0001-000000000038"],
+
+Cell["A missing file returns $Failed with a message:", "Text",
+ CellID->100000039,ExpressionUUID->"a1000001-0001-0001-0001-000000000039"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadDotEnv", "[",
+  "\"\</nonexistent/path/.env\>\"", "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->100000040,ExpressionUUID->"a1000001-0001-0001-0001-000000000040"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellLabel->"Out[7]=",
+ CellID->100000041,ExpressionUUID->"a1000001-0001-0001-0001-000000000041"]
+
+}, Open  ]],
+
+Cell["\<\
+An empty or comment-only file returns an empty Association:\
+\>", "Text",
+ CellID->100000042,ExpressionUUID->"a1000001-0001-0001-0001-000000000042"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"file", "=",
+   RowBox[{"Export", "[",
+    RowBox[{
+     RowBox[{"FileNameJoin", "[",
+      RowBox[{"{",
+       RowBox[{"$TemporaryDirectory", ",", "\"\<.env\>\""}], "}"}],
+      "]"}], ",",
+     "\"\<# just a comment\>\"", ",",
+     "\"\<Text\>\""}], "]"}]}], ";",
+  RowBox[{"LoadDotEnv", "[", "file", "]"}]}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->100000043,ExpressionUUID->"a1000001-0001-0001-0001-000000000043"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[8]=",
+ CellID->100000044,ExpressionUUID->"a1000001-0001-0001-0001-000000000044"]
+
+}, Open  ]]
+
+}, Open  ]]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Source & Additional Information", "Section",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Source & Additional Information"},
+ CellID->100000045,ExpressionUUID->"a1000001-0001-0001-0001-000000000045"],
+
+Cell[CellGroupData[{
+
+Cell["Contributed By", "Subsection",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Contributed By"},
+ CellID->100000046,ExpressionUUID->"a1000001-0001-0001-0001-000000000046"],
+
+Cell["Conor Cosnett", "Text",
+ CellID->100000047,ExpressionUUID->"a1000001-0001-0001-0001-000000000047"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Author Notes", "Subsection",
+ CellID->100000048,ExpressionUUID->"a1000001-0001-0001-0001-000000000048"],
+
+Cell["\<\
+LoadDotEnv brings the common \"dotenv\" pattern from languages like Python, \
+Ruby, and Node.js to the Wolfram Language. It is intentionally minimal: it \
+handles the most common .env format (unquoted and double-quoted KEY=VALUE \
+pairs with # comments) and delegates parsing to the built-in INI importer. \
+Multi-line values, variable expansion, and the `export` prefix are not \
+supported.\
+\>", "Text",
+ CellID->100000049,ExpressionUUID->"a1000001-0001-0001-0001-000000000049"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Submission Notes", "Subsection",
+ CellID->100000050,ExpressionUUID->"a1000001-0001-0001-0001-000000000050"],
+
+Cell["\<\
+First submission. Inspired by python-dotenv. Uses ImportString with the \
+\"Ini\" format for parsing.\
+\>", "Text",
+ CellID->100000051,ExpressionUUID->"a1000001-0001-0001-0001-000000000051"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "Subsection",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Keywords"},
+ CellID->100000052,ExpressionUUID->"a1000001-0001-0001-0001-000000000052"],
+
+Cell["dotenv", "Item",
+ CellID->100000053,ExpressionUUID->"a1000001-0001-0001-0001-000000000053"],
+
+Cell["environment variables", "Item",
+ CellID->100000054,ExpressionUUID->"a1000001-0001-0001-0001-000000000054"],
+
+Cell["configuration", "Item",
+ CellID->100000055,ExpressionUUID->"a1000001-0001-0001-0001-000000000055"],
+
+Cell[".env file", "Item",
+ CellID->100000056,ExpressionUUID->"a1000001-0001-0001-0001-000000000056"]
+
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Categories", "Subsection",
+ Editable->False,
+ Deletable->False,
+ CellTags->{"Categories"},
+ CellID->100000057,ExpressionUUID->"a1000001-0001-0001-0001-000000000057"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[GridBox[{
+        {
+         StyleBox[
+          TemplateBox[{
+            CheckboxBox[False, {False, "Cloud & Deployment"}], "\" \"",
+            "\"Cloud & Deployment\""},
+           "RowDefault"],
+          StripOnInput->False,
+          FontSize->12]},
+        {
+         StyleBox[
+          TemplateBox[{
+            CheckboxBox[True, {False, "Data Manipulation & Analysis"}], "\" \"",
+            "\"Data Manipulation & Analysis\""},
+           "RowDefault"],
+          StripOnInput->False,
+          FontSize->12]},
+        {
+         StyleBox[
+          TemplateBox[{
+            CheckboxBox[True, {False, "External Interfaces & Connections"}], "\" \"",
+            "\"External Interfaces & Connections\""},
+           "RowDefault"],
+          StripOnInput->False,
+          FontSize->12]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Left}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Column"]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Input",
+ CellID->100000058,ExpressionUUID->"a1000001-0001-0001-0001-000000000058"]
+
+}, Open  ]]
+
+}, Open  ]]
+
+}, WindowSize->{808, 911}, WindowMargins->{{68, Automatic}, {Automatic, 44}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (November 7, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb",
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"b0000001-0001-0001-0001-000000000001"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1,          1]
+NotebookOptionsPosition[      1,          1]
+NotebookOutlinePosition[      1,          1]
+CellTagsIndexPosition[      1,          1]
+WindowFrame->Normal*)
