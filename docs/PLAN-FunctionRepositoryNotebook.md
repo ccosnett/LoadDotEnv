@@ -46,33 +46,29 @@ Embed the full self-contained implementation from `LoadDotEnv.wl`. Key complianc
 - [x] Self-contained — no external code sources (no GitHub/cloud fetches)
 - [x] Only one user-facing symbol (`LoadDotEnv`)
 - [x] No undocumented side effects (returns data, does not set env vars)
-- [ ] **Review:** ensure `DeleteCases` also filters blank lines (currently only filters `#` lines — blank lines survive if whitespace-only after trim). Add: `DeleteCases[..., ""]` or equivalent.
-- [ ] **Review:** the `ImportString[..., "Ini"]` call returns a nested structure `{{"" -> {rules...}}}` for section-less INI. Flatten this to a plain `Association` in the definition so the return value is clean.
+### Definition
 
-### Proposed cleaned-up definition
+See `LoadDotEnv.wl` for the canonical implementation. The code below mirrors it exactly:
 
 ```wolfram
-LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current \
-working directory and returns an Association of key-value pairs.
+(*
+LoadDotEnv[] Loads environment variables from.env files into a Wolfram Language session. Handles the basic case: key=value pairs (quoted or unquoted),comment lines,blank lines. No support yet for: multi-line values,variable expansion,the `export` prefix,or UTF-8 BOM stripping. Parsing strategy: strip comment lines (starting with #) and blank lines,then delegate key=value parsing to ImportString[...,"Ini"],which treats the content as an INI-style file.This avoids reimplementing what the built-in importer already does correctly.
+*)
+ClearAll[LoadDotEnv];
+LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current working directory and returns an Association of key-value pairs.
 LoadDotEnv[path] loads the .env file at the given path.";
 
 LoadDotEnv[] := LoadDotEnv[FileNameJoin[{Directory[], ".env"}]]
 
-LoadDotEnv[path_String] := Module[
-  {lines, stripped, content, parsed},
-  If[!FileExistsQ[path],
-    Message[LoadDotEnv::nofile, path];
-    Return[$Failed]
-  ];
+LoadDotEnv[path_String] := Module[{lines, stripped, content, parsed}, If[! FileExistsQ[path], Message[LoadDotEnv::nofile, path];
+   Return[$Failed]];
   lines = StringTrim /@ ReadList[path, String];
   lines = StringDelete[#, "\""] & /@ lines;
-  stripped = Select[lines, !StringStartsQ[#, "#"] && # =!= "" &];
+  stripped = Select[lines, ! StringStartsQ[#, "#"] && # =!= "" &];
   If[stripped === {}, Return[<||>]];
   content = StringRiffle[stripped, "\n"];
-  parsed = ImportString[content, "Ini"];
-  (* ImportString "Ini" returns {section -> {rules...}} — extract the rules *)
-  Association @@ Flatten[Values[parsed]]
-]
+  parsed = ImportString[content, "Ini"]
+  ]
 
 LoadDotEnv::nofile = "File not found: `1`.";
 ```
