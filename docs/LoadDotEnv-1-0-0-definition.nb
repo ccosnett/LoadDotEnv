@@ -13,9 +13,11 @@ Cell["LoadDotEnv", "Title",
  CellTags->{"Name", "TemplateCell", "Title", "TabNext"},
  CellID->863144461,ExpressionUUID->"d6cb930c-ab82-4012-940c-eab7d8541584"],
 
-Cell["\<\
-Load environment variables from a .env file and return them as an Association.\
-\>", "Text",
+Cell[TextData[{
+ "Load environment variables from a ",
+ StyleBox[".env", "TI"],
+ " file and return them as an Association."
+}], "Text",
  Deletable->False,
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
@@ -23,7 +25,9 @@ Load environment variables from a .env file and return them as an Association.\
        WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
- CellChangeTimes->{3.982046333765258*^9, 3.9820483647031107`*^9},
+ CellChangeTimes->{
+  3.982046333765258*^9, 3.98204836470311*^9, {3.9820503897437983`*^9, 
+   3.982050398803444*^9}},
  CellTags->{"DefaultContent", "Description", "TabNext", "TemplateCell"},
  CellID->660820806,ExpressionUUID->"2f899efd-8544-4894-8291-782f9624fc22"],
 
@@ -69,21 +73,21 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"LoadDotEnv", "[", "]"}], " ", "Loads", " ", "environment", " ",
        "variables", " ", 
-      RowBox[{"from", ".", "env"}], " ", "files", " ", "into", " ", "a", " ", 
-      "Wolfram", " ", "Language", " ", 
+      RowBox[{"from", " ", ".", "env"}], " ", "files", " ", "into", " ", "a", 
+      " ", "Wolfram", " ", "Language", " ", 
       RowBox[{"session", ".", " ", "Handles"}], " ", "the", " ", "basic", " ", 
       RowBox[{"case", ":", " ", "key"}]}], "=", 
      RowBox[{"value", " ", "pairs", " ", 
       RowBox[{"(", 
        RowBox[{"quoted", " ", "or", " ", "unquoted"}], ")"}]}]}], ",", 
-    RowBox[{"comment", " ", "lines"}], ",", 
+    RowBox[{"comment", " ", "lines"}], ",", " ", 
     RowBox[{"blank", " ", 
      RowBox[{"lines", ".", " ", "No"}], " ", "support", " ", "yet", " ", 
      RowBox[{"for", ":", " ", 
       RowBox[{"multi", "-", 
        RowBox[{"line", " ", "values"}]}]}]}], ",", 
     RowBox[{"variable", " ", "expansion"}], ",", 
-    RowBox[{"the", " ", "`export`", " ", "prefix"}], ",", 
+    RowBox[{"the", " ", "`export`", " ", "prefix"}], ",", " ", 
     RowBox[{
      RowBox[{"or", " ", "UTF"}], "-", 
      RowBox[{"8", " ", "BOM", " ", 
@@ -184,8 +188,8 @@ and returns an Association of key-value pairs.\nLoadDotEnv[path] loads the \
  CellChangeTimes->{{3.982046433654572*^9, 3.9820465691512337`*^9}, {
   3.982046655798472*^9, 3.982046655823271*^9}, {3.982047031337163*^9, 
   3.98204703980266*^9}, {3.9820471167235937`*^9, 3.9820471171981363`*^9}, {
-  3.9820479081051207`*^9, 3.982047925896905*^9}},
- FormatType->"InputForm",
+  3.9820479081051207`*^9, 3.982047925896905*^9}, {3.982050366405205*^9, 
+  3.982050383866988*^9}, {3.982050429996622*^9, 3.9820504330942917`*^9}},
  CellTags->"DefaultContent",
  CellID->876320555,ExpressionUUID->"1c5823cc-e960-4cf1-ba41-843a736948b6"]
 }, Open  ]],
@@ -258,17 +262,18 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"LoadDotEnv", "[", "]"}]], "UsageInputs",
- CellChangeTimes->{{3.982046670180056*^9, 3.9820466936868153`*^9}},
+ CellChangeTimes->{{3.982046670180056*^9, 3.982046693686815*^9}},
  FontFamily->"Source Sans Pro",
  CellTags->{"DefaultContent", "TabNext"},
  CellID->1667292674,ExpressionUUID->"070f334a-e263-403e-b832-86d35a7eaaef"],
 
 Cell["\<\
-loads the . env file in the current working directory and returns an \
+loads the .env file in the current working directory and returns an \
 Association of key-value pairs .\
 \>", "UsageDescription",
  CellChangeTimes->{
-  3.982046794151001*^9, {3.9820471468435497`*^9, 3.9820471478762207`*^9}},
+  3.982046794151001*^9, {3.9820471468435493`*^9, 3.9820471478762207`*^9}, 
+   3.982050572359476*^9},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->1821345862,ExpressionUUID->"5231bda9-0177-489d-80f6-ac9c27ff6f04"]
 }, Open  ]],
@@ -277,19 +282,20 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"LoadDotEnv", "[", "path", "]"}]], "UsageInputs",
- CellChangeTimes->{{3.9820467329332952`*^9, 3.982046735082856*^9}, 
+ CellChangeTimes->{{3.9820467329332943`*^9, 3.982046735082856*^9}, 
    3.98204681398706*^9},
  FontFamily->"Source Sans Pro",
  CellTags->{"DefaultContent", "TabNext"},
  CellID->67839508,ExpressionUUID->"dce85d43-3459-4448-a08a-db0178107416"],
 
 Cell[TextData[{
- "loads the . env file at the given ",
+ "loads the .env file at the given ",
  StyleBox["path", "TI"],
  " ."
 }], "UsageDescription",
  CellChangeTimes->{
-  3.982046707285656*^9, {3.9820467470554857`*^9, 3.982046781979488*^9}},
+  3.982046707285656*^9, {3.9820467470554857`*^9, 3.982046781979488*^9}, 
+   3.98205057062484*^9},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->746063541,ExpressionUUID->"aef15fc9-974f-46b4-8432-97075a3bf1dc"]
 }, Open  ]]
@@ -509,7 +515,7 @@ Cell["Basic Examples", "Subsection",
 
 Cell["Write and load a simple .env file:", "Text",
  CellChangeTimes->{{3.982048022730309*^9, 3.982048059003229*^9}, {
-   3.982048189162964*^9, 3.982048205864915*^9}, 3.9820484033621883`*^9},
+   3.982048189162964*^9, 3.982048205864915*^9}, 3.9820484033621874`*^9},
  CellTags->"DefaultContent",
  CellID->586099280,ExpressionUUID->"8f43df35-e6e4-4144-b5dd-4bb95458e8cd"],
 
@@ -560,7 +566,7 @@ Cell[BoxData[{
      ",", "\"\<# database config\\nDB_HOST=localhost\\n\\nDB_PORT=5432\>\"", 
      ",", "\"\<Text\>\""}], "]"}]}], ";"}], "\n", 
  RowBox[{"LoadDotEnv", "[", "file", "]"}]}], "Input",
- CellChangeTimes->{{3.9820483237871523`*^9, 3.982048326777608*^9}, 
+ CellChangeTimes->{{3.982048323787152*^9, 3.982048326777608*^9}, 
    3.982048492448537*^9},
  CellLabel->"In[139]:=",
  CellID->2057695318,ExpressionUUID->"1b664b14-cd8e-4eb9-9690-f30f3fa53535"],
@@ -571,7 +577,7 @@ Cell[BoxData[
    RowBox[{"\<\"DB_HOST\"\>", "\[Rule]", "\<\"localhost\"\>"}], ",", 
    RowBox[{"\<\"DB_PORT\"\>", "\[Rule]", "\<\"5432\"\>"}]}], 
   "\[RightAssociation]"}]], "Output",
- CellChangeTimes->{3.982048349773583*^9, 3.9820484933517857`*^9},
+ CellChangeTimes->{3.982048349773583*^9, 3.9820484933517847`*^9},
  CellLabel->"Out[140]=",
  CellID->507804294,ExpressionUUID->"bef5281c-97ad-4e7a-af9f-fc306645e344"]
 }, Open  ]],
@@ -695,8 +701,9 @@ Cell["Possible Issues", "Subsection",
  CellTags->"DefaultContent",
  CellID->471245215,ExpressionUUID->"2dcb4f58-5ef5-44b6-9ffa-d69ce6248a62"],
 
-Cell["File note found returns $Failed:", "Text",
- CellChangeTimes->{{3.9820486749041986`*^9, 3.9820486918430643`*^9}},
+Cell["File not found returns $Failed:", "Text",
+ CellChangeTimes->{{3.9820486749041977`*^9, 3.9820486918430634`*^9}, 
+   3.982050551556692*^9},
  CellID->1539033997,ExpressionUUID->"8013ce8b-a2c7-4066-8012-a2867e109783"],
 
 Cell[CellGroupData[{
@@ -704,7 +711,7 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"LoadDotEnv", "[", "\"\</nonexistent/path/.env\>\"", "]"}]], "Input",
  
- CellChangeTimes->{{3.9820486976968117`*^9, 3.982048703181946*^9}},
+ CellChangeTimes->{{3.982048697696811*^9, 3.982048703181946*^9}},
  CellLabel->"In[166]:=",
  CellID->570784571,ExpressionUUID->"ef4d6cb2-bd99-459d-9562-ad3545e0b4ec"],
 
@@ -720,7 +727,7 @@ Cell[BoxData[
  CellID->910206405,ExpressionUUID->"e2985eb6-af44-442f-bbfb-763b7d96d745"],
 
 Cell[BoxData["$Failed"], "Output",
- CellChangeTimes->{3.9820487040655813`*^9},
+ CellChangeTimes->{3.982048704065581*^9},
  CellLabel->"Out[166]=",
  CellID->1313031254,ExpressionUUID->"0a061a66-f948-4b29-9b79-59ae876aacce"]
 }, Open  ]],
@@ -852,7 +859,7 @@ Cell["dotenv", "Item",
        WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
- CellChangeTimes->{{3.982049229012673*^9, 3.9820492305502977`*^9}, {
+ CellChangeTimes->{{3.982049229012673*^9, 3.9820492305502973`*^9}, {
   3.9820496182707977`*^9, 3.982049618272088*^9}},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->560424104,ExpressionUUID->"abe64e63-18e8-43c0-8e27-63b408995c7a"],
@@ -864,8 +871,8 @@ Cell[".env", "Item",
        WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
- CellChangeTimes->{{3.982049229012673*^9, 3.9820492305502977`*^9}, {
-  3.982049618860362*^9, 3.9820496194734383`*^9}},
+ CellChangeTimes->{{3.982049229012673*^9, 3.9820492305502973`*^9}, {
+  3.982049618860362*^9, 3.982049619473438*^9}},
  CellID->102974304,ExpressionUUID->"85a89c26-da3b-44d0-8d00-5a012c0b179e"]
 }, Open  ]],
 
@@ -1353,7 +1360,7 @@ Cell[TextData[ButtonBox["ccosnett GitHub - LoadDotEnv",
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
  CellChangeTimes->{{3.982049163710066*^9, 3.98204919298307*^9}, {
-  3.9820493026543627`*^9, 3.9820493101651573`*^9}, {3.9820494525206203`*^9, 
+  3.9820493026543627`*^9, 3.982049310165157*^9}, {3.98204945252062*^9, 
   3.982049481289712*^9}},
  CellID->1157773413,ExpressionUUID->"5bf84596-3cc6-42e8-a4f3-9cbaef0657d1"]
 }, Open  ]],
@@ -1428,7 +1435,7 @@ Cell[BoxData[
  CellID->770806,ExpressionUUID->"d88bdb4d-d492-4ae8-a9ba-d89cf8d8e0bd"],
 
 Cell[BoxData["True"], "Output",
- CellChangeTimes->{3.9820491161776237`*^9},
+ CellChangeTimes->{3.9820491161776233`*^9},
  CellTags->"DefaultContent",
  CellLabel->"Out[169]=",
  CellID->338273301,ExpressionUUID->"b55d4a86-1890-4241-afa2-4f17e07d85dc"]
@@ -1707,7 +1714,7 @@ obsYtD4mTxC2UWr58w3NfBx2Q=="},
  CellTags->{
   "CheckboxCell", "CompatibilityFeatures", "CompatibilityFeatures-Checkboxes"},
  CellID->32088781,ExpressionUUID->"c206e9aa-b5eb-4618-b502-af28602d0ddd"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -1779,7 +1786,6 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["WebEvaluation", {False, "WebEvaluation"}], "\" \"", 
-            
             TemplateBox[{
              "\"WebEvaluation\"", 
               "\"Cloud evaluation initiated by an HTTP request\""}, 
@@ -1791,6 +1797,7 @@ Cell[BoxData[
          StyleBox[
           TemplateBox[{
             CheckboxBox["BatchJob", {False, "BatchJob"}], "\" \"", 
+            
             TemplateBox[{"\"BatchJob\"", "\"Remote batch job\""}, 
              "PrettyTooltipTemplate"]},
            "RowDefault"],
@@ -1985,21 +1992,26 @@ that are otherwise beyond the scope of the function documentation.",
  CellTags->{"Author Notes", "TemplateCellGroup"},
  CellID->897529167,ExpressionUUID->"20a09b0f-8116-4fc9-8133-3329fe19767d"],
 
-Cell["\<\
-LoadDotEnv brings the common \[OpenCurlyDoubleQuote]dotenv\
-\[CloseCurlyDoubleQuote] pattern from languages like Python, Ruby, and \
-Node.js to the Wolfram Language. It is intentionally minimal: it handles the \
-most common .env format (unquoted and double-quoted KEY=VALUE pairs with # \
-comments) and delegates parsing to the built-in INI importer. Multi-line \
-values, variable expansion, and the export prefix are not supported.\
-\>", "Text",
+Cell[TextData[{
+ "LoadDotEnv brings the common ",
+ StyleBox["dotenv", "TI"],
+ " pattern from languages like Python, Ruby, and Node.js to the Wolfram \
+Language. It is intentionally minimal: it handles the most common .env format \
+(unquoted and double-quoted ",
+ StyleBox["KEY=VALUE", "Program"],
+ " pairs with ",
+ StyleBox["# comments", "Program"],
+ ") and delegates parsing to the built-in INI importer. Multi-line values, \
+variable expansion, and the export prefix are not supported."
+}], "Text",
  CellEventActions->{Inherited, {"KeyDown", "\t"} :> Replace[SelectionMove[
        SelectedNotebook[], After, Cell]; NotebookFind[
        SelectedNotebook[], "TabNext", Next, CellTags, AutoScroll -> True, 
        WrapAround -> True], Blank[NotebookSelection] :> SelectionMove[
        SelectedNotebook[], All, CellContents, AutoScroll -> True]], 
    PassEventsDown -> False, PassEventsUp -> False},
- CellChangeTimes->{{3.982048742552947*^9, 3.982048745390987*^9}},
+ CellChangeTimes->{{3.982048742552947*^9, 3.982048745390987*^9}, {
+  3.9820504966012707`*^9, 3.982050531298388*^9}},
  CellTags->{"DefaultContent", "TabNext"},
  CellID->908162033,ExpressionUUID->"49b376e7-63d9-4541-9788-5c5401b93ae1"]
 }, Open  ]],
@@ -4392,3 +4404,4 @@ later."]]]]],
   "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"e897cafd-c835-4d75-8da0-94fc1f2ce36f"
 ]
+
