@@ -32,18 +32,18 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"dotEnvFile", "=", 
-  RowBox[{"FileNameJoin", "[", 
-   RowBox[{"{", 
+ RowBox[{"dotEnvFile", "=",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
     RowBox[{
-     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<.env\>\""}], "}"}], 
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<.env\>\""}], "}"}],
    "]"}]}]], "Input",
  CellChangeTimes->{{3.982001875369714*^9, 3.9820019279292183`*^9}},
  CellLabel->"In[3]:=",ExpressionUUID->"d4056414-2d92-4fe2-9d34-a89ad8a8e9cc"],
 
 Cell[BoxData["\<\"/Users/johncosnett/PycharmProjects/LoadDotEnv/.env\"\>"], \
 "Output",
- CellChangeTimes->{{3.982001881165844*^9, 3.982001934558475*^9}, 
+ CellChangeTimes->{{3.982001881165844*^9, 3.982001934558475*^9},
    3.982001980146261*^9, 3.982002147012659*^9},
  CellLabel->"Out[3]=",ExpressionUUID->"4c1fbde4-8d6b-43b7-a517-757238a704d1"]
 }, Open  ]],
@@ -51,13 +51,13 @@ Cell[BoxData["\<\"/Users/johncosnett/PycharmProjects/LoadDotEnv/.env\"\>"], \
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Export", "[", 
+ RowBox[{"Export", "[",
   RowBox[{
-  "dotEnvFile", ",", 
+  "dotEnvFile", ",",
    "\"\<# example .env file\nSTRIPE_API_KEY=scr_12345\n\
 TWILIO_API_KEY=abcd1234\>\"", ",", "\"\<Text\>\""}], "]"}]], "Input",
  CellChangeTimes->{{3.982001342960785*^9, 3.9820014339435177`*^9}, {
-  3.9820014705327873`*^9, 3.9820014997298107`*^9}, {3.9820018737688923`*^9, 
+  3.9820014705327873`*^9, 3.9820014997298107`*^9}, {3.9820018737688923`*^9,
   3.9820019306278553`*^9}},
  CellLabel->"In[4]:=",ExpressionUUID->"814d7b3e-9d3e-411c-8334-933fca1d2eea"],
 
@@ -65,7 +65,7 @@ Cell[BoxData["\<\"/Users/johncosnett/PycharmProjects/LoadDotEnv/.env\"\>"], \
 "Output",
  CellChangeTimes->{
   3.982001435222435*^9, {3.982001472119371*^9, 3.982001500083255*^9}, {
-   3.982001888216428*^9, 3.98200193562609*^9}, 3.982001980160789*^9, 
+   3.982001888216428*^9, 3.98200193562609*^9}, 3.982001980160789*^9,
    3.9820021470323467`*^9},
  CellLabel->"Out[4]=",ExpressionUUID->"d89087b0-ea50-4e04-8ac9-8c7efc5ae9e5"]
 }, Open  ]],
@@ -74,7 +74,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"FilePrint", "[", "dotEnvFile", "]"}]], "Input",
- CellChangeTimes->{{3.982001867627821*^9, 3.982001896411264*^9}, 
+ CellChangeTimes->{{3.982001867627821*^9, 3.982001896411264*^9},
    3.982001932475133*^9},
  CellLabel->"In[5]:=",ExpressionUUID->"2dae6f77-d7ba-49ee-b7d5-652a84d9382c"],
 
@@ -83,7 +83,7 @@ Cell["\<\
 STRIPE_API_KEY=scr_12345
 TWILIO_API_KEY=abcd1234\
 \>", "Print",
- CellChangeTimes->{3.982001897049013*^9, 3.982001937514933*^9, 
+ CellChangeTimes->{3.982001897049013*^9, 3.982001937514933*^9,
   3.9820019801758823`*^9, 3.982002147049754*^9},
  CellLabel->
   "During evaluation of \
@@ -95,21 +95,21 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"LoadDotEnv", "[", "]"}]], "Input",
  CellChangeTimes->{{3.981996601437932*^9, 3.981996658861327*^9}, {
-   3.9820013564404373`*^9, 3.9820013763485603`*^9}, 3.982001985202291*^9, 
+   3.9820013564404373`*^9, 3.9820013763485603`*^9}, 3.982001985202291*^9,
    3.982002132010929*^9},
  CellLabel->"In[6]:=",ExpressionUUID->"31a56cd9-1875-4f15-94c3-e79ab38aba48"],
 
 Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
+ RowBox[{"\[LeftAssociation]",
   RowBox[{
-   RowBox[{"\<\"STRIPE_API_KEY\"\>", "\[Rule]", "\<\"scr_12345\"\>"}], ",", 
-   RowBox[{"\<\"TWILIO_API_KEY\"\>", "\[Rule]", "\<\"abcd1234\"\>"}]}], 
+   RowBox[{"\<\"STRIPE_API_KEY\"\>", "\[Rule]", "\<\"scr_12345\"\>"}], ",",
+   RowBox[{"\<\"TWILIO_API_KEY\"\>", "\[Rule]", "\<\"abcd1234\"\>"}]}],
   "\[RightAssociation]"}]], "Output",
  CellChangeTimes->{
-  3.9819966048222017`*^9, {3.9819966360201674`*^9, 3.981996659528658*^9}, 
-   3.981996751073698*^9, {3.981997729883745*^9, 3.9819977409018173`*^9}, 
+  3.9819966048222017`*^9, {3.9819966360201674`*^9, 3.981996659528658*^9},
+   3.981996751073698*^9, {3.981997729883745*^9, 3.9819977409018173`*^9},
    3.982001260101604*^9, {3.982001308661766*^9, 3.982001323131618*^9}, {
-   3.982001371949976*^9, 3.982001376907597*^9}, 3.982001501899576*^9, 
+   3.982001371949976*^9, 3.982001376907577*^9}, 3.982001501899172*^9,
    3.982001899698172*^9, {3.982001980190795*^9, 3.982001985739184*^9}, {
    3.9820021326007147`*^9, 3.9820021470652847`*^9}},
  CellLabel->"Out[6]=",ExpressionUUID->"3aa86044-9a84-4f4b-b8d4-25c491644a92"]
@@ -153,4 +153,5 @@ Cell[3453, 101, 761, 13, 52, "Output",ExpressionUUID->"3aa86044-9a84-4f4b-b8d4-2
 }
 ]
 *)
+
 
