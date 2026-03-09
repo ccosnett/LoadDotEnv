@@ -28,7 +28,8 @@ LoadDotEnv[path_String] := Module[{lines1, lines2, lines3, stripped, content, pa
   stripped = DeleteCases[lines3, line_ /; StringStartsQ[line, "#"]];
   If[stripped === {}, Return[<||>]];
   content = StringRiffle[stripped, "\n"];
-  parsed = ImportString[content, "Ini"]
+  parsed = ImportString[content, "Ini"];
+  Association @@ Flatten[Values[parsed]]
 ]
 
 LoadDotEnv::nofile = "File not found: `1`."
