@@ -58,3 +58,9 @@ It handles:
 - Blank lines
 
 Not yet supported: quoted values, multi-line values, variable expansion, the `export` prefix, or UTF-8 BOM stripping.
+
+## References
+
+- [Loading .env files in Wolfram Language — Mathematica Stack Exchange](https://mathematica.stackexchange.com/q/318952/36681)
+- [Loading .env files in Wolfram Language — Wolfram Community](https://community.wolfram.com/groups/-/m/t/3653796)
+- [python-dotenv — GitHub](https://github.com/theskumar/python-dotenv)
