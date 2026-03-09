@@ -1,35 +1,20 @@
-(* LoadDotEnv.wl
-   Loads environment variables from .env files into a Wolfram Language session.
-   Handles the basic case: key=value pairs (quoted or unquoted), comment lines, blank lines.
-   No support yet for: multi-line values, variable expansion,
-   the `export` prefix, or UTF-8 BOM stripping.
-
-   Parsing strategy: strip comment lines (starting with #) and blank lines,
-   then delegate key=value parsing to ImportString[..., "Ini"], which treats
-   the content as an INI-style file. This avoids reimplementing what the
-   built-in importer already does correctly. *)
-
-LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current working directory and returns an Association of key-value pairs.\n LoadDotEnv[path] loads the .env file at the given path."
+(*
+LoadDotEnv[] Loads environment variables from.env files into a Wolfram Language session. Handles the basic case: key=value pairs (quoted or unquoted),comment lines,blank lines. No support yet for: multi-line values,variable expansion,the `export` prefix,or UTF-8 BOM stripping. Parsing strategy: strip comment lines (starting with #) and blank lines,then delegate key=value parsing to ImportString[...,"Ini"],which treats the content as an INI-style file.This avoids reimplementing what the built-in importer already does correctly.
+*)
+ClearAll[LoadDotEnv];
+LoadDotEnv::usage = "LoadDotEnv[] loads the .env file in the current working directory and returns an Association of key-value pairs.
+LoadDotEnv[path] loads the .env file at the given path.";
 
 LoadDotEnv[] := LoadDotEnv[FileNameJoin[{Directory[], ".env"}]]
 
-LoadDotEnv[path_String] := Module[{lines1, lines2, lines3, stripped, content, parsed},
-  If[!FileExistsQ[path],
-    Message[LoadDotEnv::nofile, path];
-    Return[$Failed]
-  ];
-  (* Read all lines from the file *)
-  lines1 = ReadList[path, String];
-  (* Trim leading and trailing whitespace from each line *)
-  lines2 = StringTrim /@ lines1;
-  (* Remove double-quote characters from each line *)
-  lines3 = StringDelete[#, "\""] & /@ lines2;
-  (* Strip comment lines (starting with #) and blank lines *)
-  stripped = DeleteCases[lines3, line_ /; StringStartsQ[line, "#"]];
+LoadDotEnv[path_String] := Module[{lines, stripped, content, parsed}, If[! FileExistsQ[path], Message[LoadDotEnv::nofile, path];
+   Return[$Failed]];
+  lines = StringTrim /@ ReadList[path, String];
+  lines = StringDelete[#, "\""] & /@ lines;
+  stripped = Select[lines, ! StringStartsQ[#, "#"] && # =!= "" &];
   If[stripped === {}, Return[<||>]];
   content = StringRiffle[stripped, "\n"];
-  parsed = ImportString[content, "Ini"];
-  Association @@ Flatten[Values[parsed]]
-]
+  parsed = ImportString[content, "Ini"]
+  ]
 
-LoadDotEnv::nofile = "File not found: `1`."
+LoadDotEnv::nofile = "File not found: `1`.";
