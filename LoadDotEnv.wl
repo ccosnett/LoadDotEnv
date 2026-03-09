@@ -28,11 +28,6 @@ LoadDotEnv[path_String] := Module[{lines1, lines2, lines3, stripped, content, pa
   stripped = DeleteCases[lines3, line_ /; StringStartsQ[line, "#"]];
   If[stripped === {}, Return[<||>]];
   content = StringRiffle[stripped, "\n"];
-  (* Use Wolfram's built-in INI format importer to parse key=value pairs.
-     Docs: https://reference.wolfram.com/language/ref/format/Ini.html
-     Returns { sectionName -> { key -> val, ... }, ... }.
-     Since .env files have no section headers, everything lands in the
-     default ("") section: { "" -> { "KEY" -> "val", ... } }. *)
   parsed = ImportString[content, "Ini"]
 ]
 
