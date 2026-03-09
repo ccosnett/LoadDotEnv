@@ -7,7 +7,7 @@ LoadDotEnv[path] loads the .env file at the given path.";
 
 LoadDotEnv[] := LoadDotEnv[FileNameJoin[{Directory[], ".env"}]]
 
-LoadDotEnv[path_String] := Module[{lines, stripped, content, parsed}, If[! FileExistsQ[path], Message[LoadDotEnv::nofile, path];
+LoadDotEnv[path_String] := Module[{lines, stripped, content, parsed}, If[! FileExistsQ[path], ResourceFunction["ResourceFunctionMessage"][LoadDotEnv::nofile, path];
    Return[$Failed]];
   lines = StringTrim /@ ReadList[path, String];
   lines = StringDelete[#, "\""] & /@ lines;
