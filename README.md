@@ -65,3 +65,7 @@ Not yet supported: quoted values, multi-line values, variable expansion, the `ex
 - [The .env File Format — dotenv.org](https://www.dotenv.org/docs/security/env.html)
 - [Loading .env files in Wolfram Language — Wolfram Community](https://community.wolfram.com/groups/-/m/t/3653796)
 - [python-dotenv — GitHub](https://github.com/theskumar/python-dotenv)
+
+## Source Code
+
+The implementation of `LoadDotEnv` can be found in [`LoadDotEnv.wl`](LoadDotEnv.wl).
