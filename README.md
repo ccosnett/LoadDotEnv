@@ -23,7 +23,7 @@ env = LoadDotEnv[]
 This returns an `Association` of key-value pairs, e.g.:
 
 ```mathematica
-<| "DATABASE_URL" -> "postgres://localhost/mydb", "API_KEY" -> "secret" |>
+<| "STRIPE_API_KEY" -> "scr_12345", "TWILIO_API_KEY" -> "abcd1234" |>
 ```
 
 To load a `.env` file at a specific path:
@@ -35,7 +35,7 @@ env = LoadDotEnv["/path/to/project/.env"]
 You can then access individual values with normal `Association` lookup:
 
 ```mathematica
-env["API_KEY"]
+env["STRIPE_API_KEY"]
 ```
 
 ### Viewing Documentation
